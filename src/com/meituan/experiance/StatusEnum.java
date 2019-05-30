@@ -9,9 +9,8 @@ package com.meituan.experiance;
  * @since 2019/5/30
  */
 public enum StatusEnum {
-    UNDO("UNDO", "未开始"),
     // 仅开始做，并未提交
-    TRYING("TRYING", "尝试做"),
+    TRYING("TRYING", "尝试中"),
     // 提交过多次 但因一些特殊情况未通过 放弃作答
     WRONG_ANSWER("WRONG_ANSWER", "答案错误"),
     ACCEPTTED("ACCEPTTED", "被接受");

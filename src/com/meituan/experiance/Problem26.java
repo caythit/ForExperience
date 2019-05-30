@@ -42,19 +42,39 @@ package com.meituan.experiance;
  * @see
  * @since 2019/5/30
  */
-@Info(status = StatusEnum.TRYING)
+@Info(status = StatusEnum.WRONG_ANSWER)
 public class Problem26 {
     /**
-     * 已排序的数组
+     * 已排序的数组去除相同的元素 返回剩余数组的长度
+     * 说明：
+     * （1）在原地操作 不能使用额外的数组空间
+     * （2）第一次做的时候仅仅是统计不同的数字并返回，并没有改动数组，导致未通过
+     * 注意看上面的Clarification，问题需要实际变更数组，后台判定时会根据返回的长度以及实际数组来看结果
+     *
+     * Runtime: 1 ms, faster than 99.76% of Java online submissions for Remove Duplicates from Sorted Array.
      * @param nums
      * @return
      */
     public int removeDuplicates(int[] nums) {
-        return 0;
+        if (nums.length == 0) {
+            return 0;
+        }
+        Integer cn = 1;
+        Integer index = 0;
+        Integer start = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            if (start == nums[i]) {
+                continue;
+            }
+            cn++;
+            start = nums[i];
+            nums[++index] = nums[i];
+        }
+        return cn;
     }
 
     public static void main(String[] args) {
         Problem26 problem26 = new ProblemConstructBuilder<Problem26>(Problem26.class.getName()).build();
-        System.out.println(problem26.removeDuplicates(new int[]{1, 1, 2}));
+        System.out.println(problem26.removeDuplicates(new int[]{0, 0, 1, 1, 1, 2, 2, 3, 3, 4}));
     }
 }
