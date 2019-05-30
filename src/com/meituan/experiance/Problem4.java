@@ -26,7 +26,19 @@ package com.meituan.experiance;
  * @see
  * @since 2019/5/23
  */
+@Info(status = StatusEnum.WRONG_ANSWER)
 public class Problem4 {
+
+    /**
+     * 找出两个已排序数组合并后的中位数
+     * 说明：
+     * （1）时间复杂度必须为 O(log (m+n))
+     * （2）数组不会同时为空
+     *
+     * @param nums1
+     * @param nums2
+     * @return
+     */
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
         int totalLen = nums1.length + nums2.length;
         // 根据总长度奇偶来定义中位数起始位置
@@ -74,7 +86,7 @@ public class Problem4 {
      * @return
      */
     private boolean isMaxLessMin(int[] nums1, int[] nums2) {
-        return nums1[nums1.length-1] < nums2[0] || nums2[nums2.length-1] < nums1[0];
+        return nums1[nums1.length - 1] < nums2[0] || nums2[nums2.length - 1] < nums1[0];
     }
 
     /**
@@ -129,7 +141,7 @@ public class Problem4 {
         System.out.println(problem4.findMedianSortedArrays(new int[]{2}, new int[]{1}));
         System.out.println(problem4.findMedianSortedArrays(new int[]{1, 3}, new int[]{4}));
         System.out.println(problem4.findMedianSortedArrays(new int[]{1, 3}, new int[]{2, 4}));
-        System.out.println(problem4.findMedianSortedArrays(new int[]{1, 2, 3}, new int[]{4,5,6}));
+        System.out.println(problem4.findMedianSortedArrays(new int[]{1, 2, 3}, new int[]{4, 5, 6}));
 
         System.out.println(problem4.findMedianSortedArrays(new int[]{1}, new int[]{2, 4}));
         System.out.println(problem4.findMedianSortedArrays(new int[]{2, 3}, new int[]{1}));

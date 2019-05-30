@@ -26,7 +26,18 @@ import java.util.*;
  * @see
  * @since 2019/5/28
  */
+@Info(status = StatusEnum.ACCEPTTED)
 public class Problem18 {
+
+    /**
+     * 找出数组中四个数字之和 等于 给定值的 所有组合情况
+     * 说明：
+     * （1）不能返回相同的组合，比如[0,0,1,0]、[0,1,0,0] 被认为是同样的组合
+     *
+     * @param nums
+     * @param target
+     * @return
+     */
     public List<List<Integer>> fourSum(int[] nums, int target) {
         List<List<Integer>> resultAll = new LinkedList<>();
 

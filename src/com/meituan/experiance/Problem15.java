@@ -28,8 +28,17 @@ import java.util.Map;
  * @see
  * @since 2019/5/23
  */
+@Info(status = StatusEnum.ACCEPTTED)
 public class Problem15 {
 
+    /**
+     * 找出数组中三个数字之和等于0的所有组合情况
+     * 说明：
+     * （1）不能返回相同的组合，比如[0,0,1]、[0,1,0] 被认为是同样的组合
+     *
+     * @param nums
+     * @return
+     */
     public List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> resultList = new ArrayList<>();
 
@@ -44,7 +53,7 @@ public class Problem15 {
             if (num == 0 && zeroLimit-- > 0) {
                 zeroList.add(num);
             } else if (numLimit.get(num) == null || numLimit.get(num) < 2) {
-                if(num < 0) {
+                if (num < 0) {
                     negativeList.add(num);
                 } else {
                     positiveList.add(num);
@@ -124,7 +133,7 @@ public class Problem15 {
         Map<Integer, Integer> minusMap = new HashMap<>();
         for (int i = 0; i < arrays.size(); i++) {
             int minus = target - arrays.get(i);
-            if(!minusMap.containsKey(minus)) {
+            if (!minusMap.containsKey(minus)) {
                 minusMap.put(minus, i);
             }
         }
@@ -148,7 +157,7 @@ public class Problem15 {
 
     public static void main(String[] args) {
         Problem15 problem15 = new ProblemConstructBuilder<Problem15>(Problem15.class.getName()).build();
-        List<List<Integer>> result = problem15.threeSum(new int[]{-4,-2,1,-5,-4,-4,4,-2,0,4,0,-2,3,1,-5,0});
+        List<List<Integer>> result = problem15.threeSum(new int[]{-4, -2, 1, -5, -4, -4, 4, -2, 0, 4, 0, -2, 3, 1, -5, 0});
         result.forEach(r -> r.forEach(x -> System.out.println(x)));
 
     }

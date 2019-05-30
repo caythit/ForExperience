@@ -22,8 +22,19 @@ import java.util.Map;
  * @see
  * @since 2019/5/20
  */
+@Info(status = StatusEnum.ACCEPTTED)
 public class Problem1 {
 
+    /**
+     * 数组两数之和 等于给定值 返回其下标
+     * 说明：
+     * （1）数组中的每个值只能出现一次
+     * （2）不能使用相同的值两次
+     *
+     * @param nums
+     * @param target
+     * @return
+     */
     public int[] twoSum(int[] nums, int target) {
         int[] result = new int[2];
         // key为减过后的值 value为下标

@@ -19,8 +19,18 @@ import java.util.Arrays;
  * @see
  * @since 2019/5/24
  */
+@Info(status = StatusEnum.ACCEPTTED)
 public class Problem16 {
 
+    /**
+     * 找出数组中三个数字之和 与 给定值 最为接近的组合 返回这个组合的sum值
+     * 说明：
+     * （1）数组中的每个值只能出现一次
+     *
+     * @param nums
+     * @param target
+     * @return
+     */
     public int threeSumClosest(int[] nums, int target) {
 
         Arrays.sort(nums);
