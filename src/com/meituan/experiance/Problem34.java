@@ -22,7 +22,7 @@ package com.meituan.experiance;
  * @see
  * @since 2019/5/30
  */
-@Info(status = StatusEnum.TRYING)
+@Info(status = StatusEnum.ACCEPTTED)
 public class Problem34 {
 
     /**
