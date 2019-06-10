@@ -36,7 +36,7 @@ import java.util.*;
  * @see
  * @since 2019/6/2
  */
-@Info(status = StatusEnum.ACCEPTTED)
+@Info(status = StatusEnum.ACCEPTTED_OTHER)
 public class Problem40 {
 
     /**
