@@ -36,13 +36,13 @@ import java.util.stream.Collectors;
  * @see
  * @since 2019/6/1
  */
-@Info(status = StatusEnum.TRYING)
+@Info(status = StatusEnum.ACCEPTTED_OTHER)
 public class Problem39 {
 
     /**
      * 从无重复数字的给定数组中找出几个数字之和等于给定值
      * 说明：
-     * （1）可以重复利用某个数字无限次
+     * （1）数组元素可以重复利用无限次
      * （2）不能返回重复的组合
      * （3）数组都是正数
      *
