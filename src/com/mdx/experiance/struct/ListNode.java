@@ -1,4 +1,4 @@
-package com.meituan.experiance.struct;
+package com.mdx.experiance.struct;
 
 import java.util.Arrays;
 import java.util.List;

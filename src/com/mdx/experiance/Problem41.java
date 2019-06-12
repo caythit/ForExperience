@@ -1,4 +1,8 @@
-package com.meituan.experiance;
+package com.mdx.experiance;
+
+import com.mdx.experiance.annotation.Info;
+import com.mdx.experiance.annotation.Mark;
+import com.mdx.experiance.enums.StatusEnum;
 
 import java.util.Arrays;
 
@@ -31,14 +35,17 @@ import java.util.Arrays;
  * @since 2019/6/9
  */
 @Info(status = StatusEnum.ACCEPTTED)
+@Mark
 public class Problem41 {
     public int firstMissingPositive(int[] nums) {
         Arrays.sort(nums);
 
         int len = nums.length;
+        // 特殊情况 空数组直接返回1
         if (len == 0) {
             return 1;
         }
+        // 特殊情况 数组长度为1
         if (len == 1) {
             if (nums[0] != 1) {
                 return 1;
@@ -47,9 +54,11 @@ public class Problem41 {
         }
 
         for (int i = 0; i < len; i++) {
+            // 值小于等于0 或者值大于数组长度 去除；
             if (nums[i] > len || nums[i] <= 0) {
                 continue;
             }
+            // 为的就是num[0] = 1; num[1] = 2这种
             nums[nums[i] - 1] = nums[i];
 
         }

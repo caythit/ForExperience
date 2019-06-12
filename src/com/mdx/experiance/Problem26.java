@@ -1,4 +1,7 @@
-package com.meituan.experiance;
+package com.mdx.experiance;
+
+import com.mdx.experiance.annotation.Info;
+import com.mdx.experiance.enums.StatusEnum;
 
 /**
  * 实现描述：
@@ -42,7 +45,7 @@ package com.meituan.experiance;
  * @see
  * @since 2019/5/30
  */
-@Info(status = StatusEnum.WRONG_ANSWER)
+@Info(status = StatusEnum.ACCEPTTED)
 public class Problem26 {
     /**
      * 已排序的数组去除相同的元素 返回剩余数组的长度

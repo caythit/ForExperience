@@ -1,4 +1,7 @@
-package com.meituan.experiance;
+package com.mdx.experiance;
+
+import com.mdx.experiance.annotation.Info;
+import com.mdx.experiance.enums.StatusEnum;
 
 /**
  * 实现描述：
@@ -46,7 +49,7 @@ package com.meituan.experiance;
  * @see
  * @since 2019/5/30
  */
-@Info(status = StatusEnum.TRYING)
+@Info(status = StatusEnum.ACCEPTTED)
 public class Problem27 {
     /**
      * 数组去除给定值 返回剩余数组的长度

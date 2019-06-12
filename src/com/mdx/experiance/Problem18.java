@@ -1,4 +1,8 @@
-package com.meituan.experiance;
+package com.mdx.experiance;
+
+import com.mdx.experiance.annotation.Info;
+import com.mdx.experiance.annotation.Mark;
+import com.mdx.experiance.enums.StatusEnum;
 
 import java.util.*;
 
@@ -27,6 +31,7 @@ import java.util.*;
  * @since 2019/5/28
  */
 @Info(status = StatusEnum.ACCEPTTED)
+@Mark
 public class Problem18 {
 
     /**

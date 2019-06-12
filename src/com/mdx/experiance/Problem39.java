@@ -1,7 +1,10 @@
-package com.meituan.experiance;
+package com.mdx.experiance;
+
+import com.mdx.experiance.annotation.Info;
+import com.mdx.experiance.annotation.Mark;
+import com.mdx.experiance.enums.StatusEnum;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * 实现描述：
@@ -36,7 +39,8 @@ import java.util.stream.Collectors;
  * @see
  * @since 2019/6/1
  */
-@Info(status = StatusEnum.ACCEPTTED_OTHER)
+@Info(status = StatusEnum.ACCEPTTED)
+@Mark
 public class Problem39 {
 
     /**

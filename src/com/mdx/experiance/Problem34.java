@@ -1,4 +1,8 @@
-package com.meituan.experiance;
+package com.mdx.experiance;
+
+import com.mdx.experiance.annotation.Info;
+import com.mdx.experiance.annotation.Mark;
+import com.mdx.experiance.enums.StatusEnum;
 
 /**
  * 实现描述：
@@ -23,6 +27,7 @@ package com.meituan.experiance;
  * @since 2019/5/30
  */
 @Info(status = StatusEnum.ACCEPTTED)
+@Mark
 public class Problem34 {
 
     /**

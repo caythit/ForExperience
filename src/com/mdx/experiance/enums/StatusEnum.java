@@ -1,4 +1,4 @@
-package com.meituan.experiance;
+package com.mdx.experiance.enums;
 
 /**
  * 实现描述：状态枚举
@@ -13,8 +13,7 @@ public enum StatusEnum {
     TRYING("TRYING", "尝试中"),
     // 提交过多次 但因一些特殊情况未通过 放弃作答
     WRONG_ANSWER("WRONG_ANSWER", "答案错误"),
-    ACCEPTTED("ACCEPTTED", "被接受"),
-    ACCEPTTED_OTHER("ACCEPTTED_OTHER", "被接受-其他");
+    ACCEPTTED("ACCEPTTED", "被接受");
 
     private String status;
     private String statusDesc;
