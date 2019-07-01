@@ -1,5 +1,8 @@
 package com.mdx.experiance.top.interview;
 
+import com.mdx.experiance.annotation.Info;
+import com.mdx.experiance.annotation.Mark;
+import com.mdx.experiance.enums.StatusEnum;
 import com.mdx.experiance.problem.ProblemConstructBuilder;
 
 /**
@@ -21,6 +24,8 @@ import com.mdx.experiance.problem.ProblemConstructBuilder;
  * @see
  * @since 2019/6/13
  */
+@Info(status = StatusEnum.TRYING)
+@Mark
 public class Problem5 {
     /**
      * 找出字符串中最长的回文

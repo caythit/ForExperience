@@ -69,6 +69,7 @@ public class Problem41 {
                 return i + 1;
             }
         }
+        // 如果都等 那么返回最大值+1即可
         return nums[nums.length - 1] + 1;
     }
 
