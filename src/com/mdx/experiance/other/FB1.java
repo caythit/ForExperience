@@ -39,5 +39,6 @@ public class FB1 {
         FB1 fb1 = new FB1();
         System.out.println(fb1.findMin(new Integer[]{5, 6, 7, 8, 1, 2, 3, 4}));
         System.out.println(fb1.findMin(new Integer[]{5, 6, 7, 1, 2, 3, 4}));
+        System.out.println(fb1.findMin(new Integer[]{4, 5, 6, 7, 0, 1, 2}));
     }
 }
