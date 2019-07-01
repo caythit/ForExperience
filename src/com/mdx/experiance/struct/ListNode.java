@@ -1,7 +1,9 @@
 package com.mdx.experiance.struct;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -12,7 +14,8 @@ import java.util.stream.Collectors;
  * @see
  * @since 2019/6/10
  */
-public class ListNode {
+public class ListNode{
+    static final int MAXIMUM_CAPACITY = 1 << 30;
     public int val;
     public ListNode next;
 
@@ -43,4 +46,18 @@ public class ListNode {
         System.out.println(sb.toString().substring(0, sb.toString().lastIndexOf("->")));
     }
 
+    public static void main(String[] args) {
+        Integer cap = 0;
+        int n = cap - 1;
+        n |= n >>> 1;
+        n |= n >>> 2;
+        n |= n >>> 4;
+        n |= n >>> 8;
+        n |= n >>> 16;
+        Integer v = (n < 0) ? 1 : (n >= MAXIMUM_CAPACITY) ? MAXIMUM_CAPACITY : n + 1;
+        System.out.println(v);
+
+        Map<Integer, Integer> kv = new HashMap<>(10);
+        kv.put(1,1);
+    }
 }
