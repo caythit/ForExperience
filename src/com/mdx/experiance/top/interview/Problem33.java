@@ -1,8 +1,9 @@
-package com.mdx.experiance.problem;
+package com.mdx.experiance.top.interview;
 
 import com.mdx.experiance.annotation.Info;
 import com.mdx.experiance.annotation.Mark;
 import com.mdx.experiance.enums.StatusEnum;
+import com.mdx.experiance.problem.ProblemConstructBuilder;
 
 /**
  * 假设按照升序排序的数组在预先未知的某个点上进行了旋转。
