@@ -1,5 +1,7 @@
 package com.mdx.experiance.top.interview;
 
+import com.mdx.experiance.annotation.Info;
+import com.mdx.experiance.enums.StatusEnum;
 import com.mdx.experiance.problem.ProblemConstructBuilder;
 
 import java.util.Stack;
@@ -40,6 +42,7 @@ import java.util.Stack;
  * @see
  * @since 2019/7/2
  */
+@Info(status = StatusEnum.ACCEPTTED)
 public class Problem20 {
     public boolean isValid(String s) {
         Stack<Character> pariStack = new Stack<>();
