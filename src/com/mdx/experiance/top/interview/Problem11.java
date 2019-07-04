@@ -42,7 +42,7 @@ public class Problem11 {
     }
 
     /**
-     * O(n)
+     * O(n/2)
      *
      * @param height
      * @return
