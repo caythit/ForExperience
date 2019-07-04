@@ -1,5 +1,9 @@
 package com.mdx.experiance.top.interview;
 
+import com.mdx.experiance.annotation.Info;
+import com.mdx.experiance.enums.StatusEnum;
+import com.mdx.experiance.problem.ProblemConstructBuilder;
+
 /**
  * 实现描述：
  * Given n non-negative integers representing an elevation map where the width of each bar is 1,
@@ -19,8 +23,34 @@ package com.mdx.experiance.top.interview;
  * @see
  * @since 2019/7/4
  */
+@Info(status = StatusEnum.ACCEPTTED)
 public class Problem42 {
-    public static void main(String[] args) {
+    public int trap(int[] height) {
+        int left = 0, right = height.length - 1;
+        Integer res = 0, minIndex = -1;
+        while (left < right) {
+            if (height[left] > height[right]) {
+                minIndex = right;
+                right--;
 
+                while (left < right && height[right] < height[minIndex]) {
+                    res = res + (height[minIndex] - height[right]);
+                    right--;
+                }
+            } else {
+                minIndex = left;
+                left++;
+                while (left < right && height[left] < height[minIndex]) {
+                    res = res + (height[minIndex] - height[left]);
+                    left++;
+                }
+            }
+        }
+        return res;
+    }
+
+    public static void main(String[] args) {
+        Problem42 problem = new ProblemConstructBuilder<Problem42>(Problem42.class.getName()).build();
+        System.out.println(problem.trap(new int[]{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1}));
     }
 }
