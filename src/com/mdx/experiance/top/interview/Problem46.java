@@ -1,5 +1,7 @@
 package com.mdx.experiance.top.interview;
 
+import com.mdx.experiance.annotation.Info;
+import com.mdx.experiance.enums.StatusEnum;
 import com.mdx.experiance.problem.ProblemConstructBuilder;
 
 import java.util.ArrayList;
@@ -27,6 +29,7 @@ import java.util.List;
  * @see
  * @since 2019/7/4
  */
+@Info(status = StatusEnum.ACCEPTTED)
 public class Problem46 {
     public List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> allResultList = new ArrayList<>();
