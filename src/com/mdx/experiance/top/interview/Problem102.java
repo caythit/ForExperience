@@ -1,5 +1,7 @@
 package com.mdx.experiance.top.interview;
 
+import com.mdx.experiance.annotation.Info;
+import com.mdx.experiance.enums.StatusEnum;
 import com.mdx.experiance.problem.ProblemConstructBuilder;
 import com.mdx.experiance.struct.TreeNode;
 
@@ -32,6 +34,7 @@ import java.util.concurrent.LinkedBlockingQueue;
  * @see
  * @since 2019/7/9
  */
+@Info(status = StatusEnum.ACCEPTTED)
 public class Problem102 {
     public List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> levelList = new ArrayList<>();
