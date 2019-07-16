@@ -55,8 +55,8 @@ public class TreeNode {
         if (treeNode == null) {
             return;
         }
-        preOrder(treeNode.left);
         System.out.println(treeNode.val);
+        preOrder(treeNode.left);
         preOrder(treeNode.right);
     }
 
@@ -64,8 +64,8 @@ public class TreeNode {
         if (treeNode == null) {
             return;
         }
-        System.out.println(treeNode.val);
         inOrder(treeNode.left);
+        System.out.println(treeNode.val);
         inOrder(treeNode.right);
     }
 
@@ -79,7 +79,7 @@ public class TreeNode {
     }
 
     public static void main(String[] args) {
-        Integer[] arrays = new Integer[]{3, 9, 20, null, null, 15, 7};
+        Integer[] arrays = new Integer[]{1, null, 2, 3};
         TreeNode treeNode = TreeNode.array2TreeNode(arrays);
         preOrder(treeNode);
         System.out.println("------------------");
