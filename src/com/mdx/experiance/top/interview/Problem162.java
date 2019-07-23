@@ -39,11 +39,23 @@ import java.util.List;
  */
 @Info(status = StatusEnum.WRONG_ANSWER)
 public class Problem162 {
+    /**
+     * 比较恶心的一点就是特殊情况
+     * （1）数组就一个元素 输出0
+     * （2）数组升序 输出第一个元素
+     * （3）数组降序 输出0
+     *
+     * @param nums
+     * @return
+     */
     public int findPeakElement(int[] nums) {
+        if (nums.length == 1) {
+            return 0;
+        }
         List<Integer> res = new ArrayList<>();
         findPeakElement(nums, 0, nums.length - 1, res);
         if (res.size() == 0) {
-            return 0;
+            return nums[0];
         }
         return res.get(0);
     }
@@ -63,7 +75,7 @@ public class Problem162 {
 
     public static void main(String[] args) {
         Problem162 problem = new ProblemConstructBuilder<Problem162>(Problem162.class.getName()).build();
-//        System.out.println(problem.findPeakElement(new int[]{1}));
+        System.out.println(problem.findPeakElement(new int[]{1}));
         System.out.println(problem.findPeakElement(new int[]{3, 2, 1}));
         System.out.println(problem.findPeakElement(new int[]{1, 2, 3, 4}));
 //        System.out.println(problem.findPeakElement(new int[]{1, 2, 3, 1}));
