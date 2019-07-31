@@ -34,19 +34,100 @@ public class Problem94 {
         List<Integer> res = new ArrayList<>();
 
         TreeNode tmp = root;
-        while (tmp.left != null) {
-            treeNodeStack.push(tmp.left);
-            tmp = tmp.left;
-        }
+        while (!treeNodeStack.empty() || tmp != null) {
+            while (tmp != null) {
+                treeNodeStack.push(tmp);
+                tmp = tmp.left;
+            }
+            if (!treeNodeStack.empty()) {
+                tmp = treeNodeStack.pop();
+                res.add(tmp.val);
+                tmp = tmp.right;
+            }
 
-        return null;
+        }
+        return res;
+    }
+
+    public List<Integer> inorderTraversalV2(TreeNode root) {
+        Stack<TreeNode> treeNodeStack = new Stack<>();
+        List<Integer> res = new ArrayList<>();
+
+        TreeNode tmp = root;
+        treeNodeStack.push(tmp);
+        while (!treeNodeStack.empty()) {
+            if (tmp.right != null) {
+                treeNodeStack.push(tmp.right);
+            }
+
+            if (tmp.left != null) {
+                treeNodeStack.push(tmp.left);
+            }
+            tmp = treeNodeStack.pop();
+            res.add(tmp.val);
+
+        }
+        return res;
+    }
+
+    public List<Integer> preorderTraversal(TreeNode root) {
+        Stack<TreeNode> treeNodeStack = new Stack<>();
+        List<Integer> res = new ArrayList<>();
+
+        TreeNode tmp = root;
+        treeNodeStack.push(tmp);
+        while (!treeNodeStack.empty()) {
+            tmp = treeNodeStack.pop();
+            res.add(tmp.val);
+            if (tmp.right != null) {
+                treeNodeStack.push(tmp.right);
+            }
+
+            if (tmp.left != null) {
+                treeNodeStack.push(tmp.left);
+            }
+
+        }
+        return res;
+    }
+
+    public List<Integer> postorderTraversal(TreeNode root) {
+        Stack<TreeNode> treeNodeStack = new Stack<>();
+        List<Integer> res = new ArrayList<>();
+
+        TreeNode tmp = root;
+        treeNodeStack.push(tmp);
+        while (!treeNodeStack.empty()) {
+            tmp = treeNodeStack.pop();
+            res.add(tmp.val);
+
+            if (tmp.left != null) {
+                treeNodeStack.push(tmp.left);
+            }
+
+            if (tmp.right != null) {
+                treeNodeStack.push(tmp.right);
+            }
+        }
+        return res;
     }
 
     public static void main(String[] args) {
         Problem94 problem = new ProblemConstructBuilder<Problem94>(Problem94.class.getName()).build();
-        TreeNode.inOrder(TreeNode.array2TreeNode(new Integer[]{1, null, 2, null, null, 3}));
-        for (Integer i : problem.inorderTraversal(TreeNode.array2TreeNode(new Integer[]{1, null, 2, null, null, 3}))) {
-            System.out.println(i);
+//        TreeNode.inOrder(TreeNode.array2TreeNode(new Integer[]{1, null, 2, null, null, 3}));
+
+        for (Integer i : problem.preorderTraversal(TreeNode.array2TreeNode(new Integer[]{1, 4, 2, 7, 5, 3}))) {
+            System.out.print(i + "->");
+        }
+        System.out.println();
+
+        for (Integer i : problem.inorderTraversalV2(TreeNode.array2TreeNode(new Integer[]{1, 4, 2, 7, 5, 3}))) {
+            System.out.print(i + "->");
+        }
+        System.out.println();
+
+        for (Integer i : problem.postorderTraversal(TreeNode.array2TreeNode(new Integer[]{1, 4, 2, 7, 5, 3}))) {
+            System.out.print(i + "->");
         }
     }
 }
