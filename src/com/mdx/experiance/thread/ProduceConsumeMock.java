@@ -36,7 +36,7 @@ public class ProduceConsumeMock {
             while (true) {
                 try {
                     lock.lock();
-                    while (buffer.size() == size) {
+                    if (buffer.size() == size) {
                         System.out.println("警告：线程(" + Thread.currentThread().getName() + ")准备生产产品，但队列已满");
                         try {
                             fullCond.await();
@@ -73,7 +73,7 @@ public class ProduceConsumeMock {
             while (true) {
                 try {
                     lock.lock();
-                    while (buffer.isEmpty()) {
+                    if (buffer.isEmpty()) {
                         System.out.println("警告：线程(" + Thread.currentThread().getName() + ")准备消费产品，但当前没有产品");
                         try {
                             emptyCond.await();

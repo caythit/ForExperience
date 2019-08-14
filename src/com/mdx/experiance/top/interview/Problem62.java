@@ -1,6 +1,11 @@
 package com.mdx.experiance.top.interview;
 
+import com.mdx.experiance.annotation.Info;
+import com.mdx.experiance.enums.StatusEnum;
 import com.mdx.experiance.problem.ProblemConstructBuilder;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 实现描述：A robot is located at the top-left corner of a m x n grid (marked 'Start' in the diagram below).
@@ -33,33 +38,30 @@ import com.mdx.experiance.problem.ProblemConstructBuilder;
  * @see
  * @since 2019/7/28
  */
+@Info(status = StatusEnum.ACCEPTTED)
 public class Problem62 {
 
     public int uniquePaths(int m, int n) {
-        Integer sum = 0;
-        uniquePaths(0, 0, m - 1, n - 1, sum);
-        return sum;
+        int[][] dp = new int[m][n];
+
+        for (int i = 0; i < m; i++) {
+            dp[i][0] = 1;
+        }
+        for (int j = 0; j < n; j++) {
+            dp[0][j] = 1;
+        }
+        for (int i = 1; i < m; i++) {
+            for (int j = 1; j < n; j++) {
+                dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
+            }
+        }
+        return dp[m - 1][n - 1];
     }
 
-    private void uniquePaths(int stRow, int stCol, int m, int n, Integer sum) {
-        if (stRow == m && stCol == n - 1) {
-            sum += 1;
-        }
-        if (stCol == n && stRow == m - 1) {
-            sum += 1;
-        }
-
-        for (int i = stRow; i < m; i++) {
-            uniquePaths(i + 1, stCol, m, n, sum);
-        }
-        for (int j = stCol; j < n; j++) {
-            uniquePaths(stRow, j + 1, m, n, sum);
-        }
-    }
 
     public static void main(String[] args) {
         Problem62 problem = new ProblemConstructBuilder<Problem62>(Problem62.class.getName()).build();
         System.out.println(problem.uniquePaths(3, 2));
-//        System.out.println(problem.uniquePaths(7, 3));
+        System.out.println(problem.uniquePaths(7, 3));
     }
 }
