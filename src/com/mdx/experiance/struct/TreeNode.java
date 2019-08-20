@@ -78,6 +78,10 @@ public class TreeNode {
         System.out.println(treeNode.val);
     }
 
+    public static void levelOrder(TreeNode treeNode) {
+
+    }
+
     public static void main(String[] args) {
         Integer[] arrays = new Integer[]{1, null, 2, 3};
         TreeNode treeNode = TreeNode.array2TreeNode(arrays);
