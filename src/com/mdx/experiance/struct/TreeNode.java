@@ -1,6 +1,7 @@
 package com.mdx.experiance.struct;
 
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -79,16 +80,43 @@ public class TreeNode {
     }
 
     public static void levelOrder(TreeNode treeNode) {
+        if (treeNode == null) {
+            return;
+        }
+        LinkedList<TreeNode> queue = new LinkedList<>();
+        queue.push(treeNode);
+        Integer level = 1;
 
+        while (!queue.isEmpty()) {
+
+            System.out.println("level=" + level++);
+            Integer size = queue.size();
+            for (int i = 0; i < size; i++) {
+                TreeNode t = queue.poll();
+                System.out.print(t.val + "->");
+
+                if (t.left != null) {
+                    queue.add(t.left);
+                }
+
+                if (t.right != null) {
+                    queue.add(t.right);
+                }
+            }
+            System.out.println();
+
+        }
     }
 
     public static void main(String[] args) {
-        Integer[] arrays = new Integer[]{1, null, 2, 3};
+        Integer[] arrays = new Integer[]{1, null, 2, null, null, 3, 4};
         TreeNode treeNode = TreeNode.array2TreeNode(arrays);
         preOrder(treeNode);
         System.out.println("------------------");
         inOrder(treeNode);
         System.out.println("------------------");
         postOrder(treeNode);
+        System.out.println("------------------");
+        levelOrder(treeNode);
     }
 }

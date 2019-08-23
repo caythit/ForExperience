@@ -29,7 +29,7 @@ import com.mdx.experiance.struct.TreeNode;
  * @since 2019/8/19
  */
 @Info(status = StatusEnum.ACCEPTTED)
-public class Problem128 {
+public class Problem108 {
     public TreeNode sortedArrayToBST(int[] nums) {
         int len = nums.length;
         if (len == 0) {
@@ -54,7 +54,7 @@ public class Problem128 {
     }
 
     public static void main(String[] args) {
-        Problem128 problem = new ProblemConstructBuilder<Problem128>(Problem128.class.getName()).build();
+        Problem108 problem = new ProblemConstructBuilder<Problem108>(Problem108.class.getName()).build();
         TreeNode.inOrder(problem.sortedArrayToBST(new int[]{-10, -3, 0, 5, 9}));
         TreeNode.preOrder(problem.sortedArrayToBST(new int[]{-10, -3, 0, 5, 9}));
     }
