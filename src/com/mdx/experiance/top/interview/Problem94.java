@@ -1,5 +1,7 @@
 package com.mdx.experiance.top.interview;
 
+import com.mdx.experiance.annotation.Info;
+import com.mdx.experiance.enums.StatusEnum;
 import com.mdx.experiance.problem.ProblemConstructBuilder;
 import com.mdx.experiance.struct.TreeNode;
 
@@ -28,44 +30,23 @@ import java.util.Stack;
  * @see
  * @since 2019/7/15
  */
+@Info(status = StatusEnum.ACCEPTTED)
 public class Problem94 {
     public List<Integer> inorderTraversal(TreeNode root) {
         Stack<TreeNode> treeNodeStack = new Stack<>();
         List<Integer> res = new ArrayList<>();
 
         TreeNode tmp = root;
-        while (!treeNodeStack.empty() || tmp != null) {
+        while (!treeNodeStack.isEmpty() || tmp != null) {
             while (tmp != null) {
                 treeNodeStack.push(tmp);
                 tmp = tmp.left;
             }
-            if (!treeNodeStack.empty()) {
+            if(!treeNodeStack.isEmpty()) {
                 tmp = treeNodeStack.pop();
                 res.add(tmp.val);
                 tmp = tmp.right;
             }
-
-        }
-        return res;
-    }
-
-    public List<Integer> inorderTraversalV2(TreeNode root) {
-        Stack<TreeNode> treeNodeStack = new Stack<>();
-        List<Integer> res = new ArrayList<>();
-
-        TreeNode tmp = root;
-        treeNodeStack.push(tmp);
-        while (!treeNodeStack.empty()) {
-            if (tmp.right != null) {
-                treeNodeStack.push(tmp.right);
-            }
-
-            if (tmp.left != null) {
-                treeNodeStack.push(tmp.left);
-            }
-            tmp = treeNodeStack.pop();
-            res.add(tmp.val);
-
         }
         return res;
     }
@@ -121,7 +102,7 @@ public class Problem94 {
         }
         System.out.println();
 
-        for (Integer i : problem.inorderTraversalV2(TreeNode.array2TreeNode(new Integer[]{1, 4, 2, 7, 5, 3}))) {
+        for (Integer i : problem.inorderTraversal(TreeNode.array2TreeNode(new Integer[]{1, 4, 2, 7, 5, 3}))) {
             System.out.print(i + "->");
         }
         System.out.println();

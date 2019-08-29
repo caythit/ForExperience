@@ -2,7 +2,10 @@ package com.mdx.experiance.top.interview;
 
 import com.mdx.experiance.annotation.Info;
 import com.mdx.experiance.enums.StatusEnum;
+import com.mdx.experiance.problem.ProblemConstructBuilder;
 import com.mdx.experiance.struct.TreeNode;
+
+import java.util.Arrays;
 
 /**
  * 实现描述：
@@ -29,13 +32,32 @@ import com.mdx.experiance.struct.TreeNode;
  * @see
  * @since 2019/8/23
  */
-@Info(status = StatusEnum.ACCEPTTED)
+@Info(status = StatusEnum.TRYING)
 public class Problem889 {
     public TreeNode constructFromPrePost(int[] pre, int[] post) {
-        return null;
+        if (pre.length == 0 || post.length == 0) {
+            return null;
+        }
+        TreeNode head = new TreeNode(pre[0]);
+        int pos = headPos(post[post.length - 1], pre);
+        head.left = constructFromPrePost(Arrays.copyOfRange(pre, 1, pos + 1), Arrays.copyOfRange(post, 0, pos));
+        head.right = constructFromPrePost(Arrays.copyOfRange(pre, pos, pre.length), Arrays.copyOfRange(post, pos, post.length - 1));
+        return head;
     }
 
-    public static void main(String[] args) {
-        System.out.println();
+    private int headPos(int num, int[] post) {
+        for (int i = 0; i < post.length; i++) {
+            if (post[i] == num) {
+                return i;
+            }
+        }
+        return -1;
     }
+
+
+    public static void main(String[] args) {
+        Problem889 problem = new ProblemConstructBuilder<Problem889>(Problem889.class.getName()).build();
+        TreeNode.levelOrder(problem.constructFromPrePost(new int[]{1, 2, 4, 5, 3, 6, 7}, new int[]{4, 5, 2, 6, 7, 3, 1}));
+    }
+
 }
