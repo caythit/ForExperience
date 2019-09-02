@@ -52,49 +52,30 @@ import com.mdx.experiance.problem.ProblemConstructBuilder;
  * @see
  * @since 2019/7/5
  */
-@Info(status = StatusEnum.TRYING)
+@Info(status = StatusEnum.ACCEPTTED)
 public class Problem48 {
     public void rotate(int[][] matrix) {
         int n = matrix.length - 1;
         /**
          * 规律：
-         * (0,0)->(0,n-0)
-         * (0,1)->(1,n-0)
-         * (0,2)->(2,n-0)
-         * (0,3)->(3,n-0)
-         *
-         * (1,0)->(0,n-1)
-         * (1,1)->(1,n-1)
-         * (1,2)->(2,n-1)
-         * (1,3)->(3,n-1)
-         *
-         * (2,0)->(0,n-2)
-         * (2,1)->(1,n-2)
-         * (2,2)->(2,n-2)
-         * (2,3)->(3,n-2)
-         *
-         * .....
+         * 外层先换 再切到内层
+         * i为层数
+         * (i, j) -> (n-j, i) -> (n-i, n-j) -> (j, n-i)
          */
-
-        int m = n;
-        for (int i = 0; i <= n; i++) {
-            for (int j = m; j >= 0; j--) {
-                swap(i, j, j, n - i, matrix);
+        Integer loop = 0, m = n;
+        while (loop <= n / 2) {
+            for (int j = loop; j < m; j++) {
+                int tmp = matrix[loop][j];
+                matrix[loop][j] = matrix[n - j][loop];
+                matrix[n - j][loop] = matrix[n - loop][n - j];
+                matrix[n - loop][n - j] = matrix[j][n - loop];
+                matrix[j][n - loop] = tmp;
+                int x = 0;
             }
             m--;
+            loop++;
         }
-    }
 
-    /**
-     * @param i
-     * @param j
-     * @param newI
-     * @param newJ
-     */
-    private void swap(int i, int j, int newI, int newJ, int[][] matrix) {
-        int tmp = matrix[i][j];
-        matrix[i][j] = matrix[newI][newJ];
-        matrix[newI][newJ] = tmp;
     }
 
     public static void main(String[] args) {
@@ -104,7 +85,7 @@ public class Problem48 {
                 {4, 5, 6},
                 {7, 8, 9}
         };
-        problem.rotate(matrix);
+//        problem.rotate(matrix);
 
         matrix = new int[][]{
                 {5, 1, 9, 11},
@@ -113,6 +94,5 @@ public class Problem48 {
                 {15, 14, 12, 16}
         };
         problem.rotate(matrix);
-        int j = 0;
     }
 }

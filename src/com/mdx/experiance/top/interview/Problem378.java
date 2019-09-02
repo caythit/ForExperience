@@ -2,6 +2,8 @@ package com.mdx.experiance.top.interview;
 
 import com.mdx.experiance.problem.ProblemConstructBuilder;
 
+import java.util.List;
+
 /**
  * 实现描述：
  * Given a n x n matrix where each of the rows and columns are sorted in ascending order, find the kth smallest element in the matrix.
@@ -31,8 +33,11 @@ public class Problem378 {
         if (k == 1) {
             return matrix[0][0];
         }
-        while (k > 1) {
-            k--;
+
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix.length; j++) {
+
+            }
         }
         return 1;
     }
@@ -41,7 +46,7 @@ public class Problem378 {
         Problem378 problem = new ProblemConstructBuilder<Problem378>(Problem378.class.getName()).build();
         System.out.println(problem.kthSmallest(new int[][]{
                 {1, 5, 9},
-                {6, 10, 11},
+                {6, 8, 11},
                 {7, 13, 15}
         }, 7));
     }
