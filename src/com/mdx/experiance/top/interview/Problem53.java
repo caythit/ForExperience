@@ -45,6 +45,12 @@ public class Problem53 {
         return max;
     }
 
+    /**
+     * 最大连续递增子串和
+     *
+     * @param nums
+     * @return
+     */
     public int maxSubArrayV2(int[] nums) {
         Integer max = nums[0];
         Integer cur = nums[0];

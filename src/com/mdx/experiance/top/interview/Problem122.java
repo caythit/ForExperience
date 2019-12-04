@@ -38,6 +38,12 @@ import com.mdx.experiance.problem.ProblemConstructBuilder;
  */
 @Info(status = StatusEnum.ACCEPTTED)
 public class Problem122 {
+    /**
+     * 买卖股票：数组的每个数字代表股价，你可以多次交易，先买后卖，寻求最大利益
+     *
+     * @param prices
+     * @return
+     */
     public int maxProfit(int[] prices) {
         if (prices.length == 0) return 0;
         int maxProfit = 0;

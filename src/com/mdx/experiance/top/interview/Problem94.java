@@ -32,6 +32,12 @@ import java.util.Stack;
  */
 @Info(status = StatusEnum.ACCEPTTED)
 public class Problem94 {
+    /**
+     * 非递归中序遍历二叉树
+     *
+     * @param root
+     * @return
+     */
     public List<Integer> inorderTraversal(TreeNode root) {
         Stack<TreeNode> treeNodeStack = new Stack<>();
         List<Integer> res = new ArrayList<>();
@@ -42,7 +48,7 @@ public class Problem94 {
                 treeNodeStack.push(tmp);
                 tmp = tmp.left;
             }
-            if(!treeNodeStack.isEmpty()) {
+            if (!treeNodeStack.isEmpty()) {
                 tmp = treeNodeStack.pop();
                 res.add(tmp.val);
                 tmp = tmp.right;
@@ -51,6 +57,12 @@ public class Problem94 {
         return res;
     }
 
+    /**
+     * 非递归前序遍历二叉树
+     *
+     * @param root
+     * @return
+     */
     public List<Integer> preorderTraversal(TreeNode root) {
         Stack<TreeNode> treeNodeStack = new Stack<>();
         List<Integer> res = new ArrayList<>();
@@ -72,6 +84,12 @@ public class Problem94 {
         return res;
     }
 
+    /**
+     * 非递归后序遍历二叉树
+     *
+     * @param root
+     * @return
+     */
     public List<Integer> postorderTraversal(TreeNode root) {
         Stack<TreeNode> treeNodeStack = new Stack<>();
         List<Integer> res = new ArrayList<>();

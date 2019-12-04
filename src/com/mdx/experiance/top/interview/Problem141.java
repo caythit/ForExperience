@@ -48,6 +48,12 @@ import com.mdx.experiance.struct.ListNode;
  */
 @Info(status = StatusEnum.ACCEPTTED)
 public class Problem141 {
+    /**
+     * 判断链表是否存在环
+     *
+     * @param head
+     * @return
+     */
     public boolean hasCycle(ListNode head) {
         ListNode p = head, q = head;
         while (q != null && q.next != null) {
@@ -64,10 +70,10 @@ public class Problem141 {
     public static void main(String[] args) {
         Problem141 problem = new ProblemConstructBuilder<Problem141>(Problem141.class.getName()).build();
 
-        ListNode listNode = ListNode.array2ListNode(new int[]{1, 2, 1,2,1,2,1,2});
+        ListNode listNode = ListNode.array2ListNode(new int[]{1, 2, 1, 2, 1, 2, 1, 2});
         System.out.println(problem.hasCycle(listNode));
 
-        ListNode listNode1 = ListNode.array2ListNode(new int[]{3, 2, 0, -4,0,-4});
+        ListNode listNode1 = ListNode.array2ListNode(new int[]{3, 2, 0, -4, 0, -4});
         System.out.println(problem.hasCycle(listNode1));
 
     }

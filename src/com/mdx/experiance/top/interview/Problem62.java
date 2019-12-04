@@ -41,6 +41,13 @@ import java.util.List;
 @Info(status = StatusEnum.ACCEPTTED)
 public class Problem62 {
 
+    /**
+     * 二维数组左上角到右下角 只能向右或者向下 求这样的路径和
+     *
+     * @param m
+     * @param n
+     * @return
+     */
     public int uniquePaths(int m, int n) {
         int[][] dp = new int[m][n];
 

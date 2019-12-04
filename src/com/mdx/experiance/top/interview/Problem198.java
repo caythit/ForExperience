@@ -31,8 +31,14 @@ import com.mdx.experiance.problem.ProblemConstructBuilder;
  */
 @Info(status = StatusEnum.ACCEPTTED)
 public class Problem198 {
+    /**
+     * 偷钱：在一个正数数组中找出一些不相邻的数字，使得他们的和最大
+     *
+     * @param nums
+     * @return
+     */
     public int rob(int[] nums) {
-        if(nums.length == 0) {
+        if (nums.length == 0) {
             return 0;
         }
         if (nums.length == 1) {

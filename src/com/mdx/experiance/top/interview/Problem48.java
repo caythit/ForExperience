@@ -70,7 +70,6 @@ public class Problem48 {
                 matrix[n - j][loop] = matrix[n - loop][n - j];
                 matrix[n - loop][n - j] = matrix[j][n - loop];
                 matrix[j][n - loop] = tmp;
-                int x = 0;
             }
             m--;
             loop++;

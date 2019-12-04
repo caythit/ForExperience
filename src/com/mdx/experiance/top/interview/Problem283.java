@@ -24,6 +24,11 @@ import com.mdx.experiance.problem.ProblemConstructBuilder;
  */
 @Info(status = StatusEnum.ACCEPTTED)
 public class Problem283 {
+    /**
+     * 将数组的0原地移到数组的尾部
+     *
+     * @param nums
+     */
     public void moveZeroes(int[] nums) {
         Integer v = 0;
         for (int k : nums) {
