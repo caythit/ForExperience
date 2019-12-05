@@ -1,5 +1,7 @@
 package com.mdx.experiance.top.interview;
 
+import com.mdx.experiance.annotation.Info;
+import com.mdx.experiance.enums.StatusEnum;
 import com.mdx.experiance.problem.ProblemConstructBuilder;
 
 /**
@@ -22,9 +24,12 @@ import com.mdx.experiance.problem.ProblemConstructBuilder;
  * @see
  * @since 2019/7/23
  */
+@Info(status = StatusEnum.ACCEPTTED)
 public class Problem300 {
     /**
-     * 最长递增子序列
+     * 最长递增子序列，不要求子序列的连续，但是必须和原数组顺序一致
+     * 比如[10,9,2,5,3,7,101,18]的结果是[2,3,7,101]，可以跳过5
+     * 时间复杂度O(N^2)
      *
      * @param nums
      * @return
