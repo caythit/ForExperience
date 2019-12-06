@@ -24,11 +24,21 @@ import com.mdx.experiance.problem.ProblemConstructBuilder;
  */
 public class Problem279 {
     public int numSquares(int n) {
-        return 0;
+        Integer num = 0;
+        while (n > 0) {
+            Integer edge = findEdge(n);
+            n = n - edge * edge;
+            num++;
+        }
+        return num;
     }
 
-    private boolean isSquare(int i) {
-        return false;
+    private Integer findEdge(int n) {
+        int x = 1;
+        while (x * x <= n) {
+            x++;
+        }
+        return x - 1;
     }
 
     public static void main(String[] args) {
