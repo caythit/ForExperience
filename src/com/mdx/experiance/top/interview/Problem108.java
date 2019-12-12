@@ -30,6 +30,12 @@ import com.mdx.experiance.struct.TreeNode;
  */
 @Info(status = StatusEnum.ACCEPTTED)
 public class Problem108 {
+    /**
+     * 有序数组转换成BST
+     *
+     * @param nums
+     * @return
+     */
     public TreeNode sortedArrayToBST(int[] nums) {
         int len = nums.length;
         if (len == 0) {

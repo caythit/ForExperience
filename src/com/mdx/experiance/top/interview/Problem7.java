@@ -31,8 +31,15 @@ import com.mdx.experiance.problem.ProblemConstructBuilder;
  */
 @Info(status = StatusEnum.WRONG_ANSWER)
 public class Problem7 {
+    /**
+     * 给定32位有符号的证书，返回其翻转后的整数
+     * 共1032个实例，有1030个实例通过
+     *
+     * @param x
+     * @return
+     */
     public int reverse(int x) {
-        if(x > Integer.MAX_VALUE / 2) {
+        if (x > Integer.MAX_VALUE / 2) {
             return 0;
         }
 
@@ -92,6 +99,6 @@ public class Problem7 {
         System.out.println(problem7.reverse(120));
         System.out.println(problem7.reverse(1534236469));
 
-        System.out.println(Math.pow(2.0f, 31.0f) /2);
+        System.out.println(Math.pow(2.0f, 31.0f) / 2);
     }
 }

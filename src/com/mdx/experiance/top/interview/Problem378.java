@@ -1,7 +1,11 @@
 package com.mdx.experiance.top.interview;
 
+import com.mdx.experiance.annotation.Info;
+import com.mdx.experiance.enums.StatusEnum;
 import com.mdx.experiance.problem.ProblemConstructBuilder;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -29,18 +33,22 @@ import java.util.List;
  * @see
  * @since 2019/7/17
  */
+@Info(status = StatusEnum.ACCEPTTED)
 public class Problem378 {
     public int kthSmallest(int[][] matrix, int k) {
         if (k == 1) {
             return matrix[0][0];
         }
 
+        int[] arr = new int[matrix.length * matrix.length];
+        int t = 0;
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix.length; j++) {
-
+                arr[t++] = matrix[i][j];
             }
         }
-        return 1;
+        Arrays.sort(arr);
+        return arr[k - 1];
     }
 
     public static void main(String[] args) {

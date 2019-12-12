@@ -46,13 +46,14 @@ import java.util.*;
 @Info(status = StatusEnum.WRONG_ANSWER)
 public class Problem380 {
     private Map<Integer, Integer> randomMap;
-    private ArrayList<Integer> randomList;
-    private static Integer removeTimes = 0;
-    private static Integer addTimes = 0;
+    private Deque<Integer> deque;
 
+    /**
+     * 共18个例子，通过17个
+     */
     public Problem380() {
         randomMap = new HashMap<>();
-        randomList = new ArrayList<>();
+        deque = new LinkedList<>();
     }
 
     /**
@@ -62,8 +63,9 @@ public class Problem380 {
         if (randomMap.containsKey(val)) {
             return false;
         }
-        randomMap.put(val, addTimes++);
-        randomList.add(val);
+        randomMap.put(val, val);
+        // 写入队尾
+        deque.offerLast(val);
         return true;
     }
 
@@ -72,11 +74,8 @@ public class Problem380 {
      */
     public boolean remove(int val) {
         if (randomMap.containsKey(val)) {
-
-            int keyIdx = randomMap.get(val);
-            randomList.remove(keyIdx - removeTimes++);
-
-            randomMap.remove(Integer.valueOf(val));
+            randomMap.remove(val);
+            deque.remove(val);
             return true;
         }
         return false;
@@ -86,8 +85,10 @@ public class Problem380 {
      * Get a random element from the set.
      */
     public int getRandom() {
-        Random random = new Random();
-        return randomList.get(random.nextInt(randomList.size()));
+        // 从队首拿出再放入队尾
+        Integer head = deque.pollFirst();
+        deque.offerLast(head);
+        return head;
     }
 
     public static void main(String[] args) {
@@ -98,6 +99,11 @@ public class Problem380 {
         System.out.println(problem.getRandom());
         System.out.println(problem.remove(0));
         System.out.println(problem.insert(0));
+        System.out.println(problem.insert(1));
+        System.out.println(problem.insert(2));
+        System.out.println(problem.getRandom());
+        System.out.println(problem.getRandom());
+        System.out.println(problem.getRandom());
         System.out.println(problem.getRandom());
 
 

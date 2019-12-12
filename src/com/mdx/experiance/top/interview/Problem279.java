@@ -1,5 +1,7 @@
 package com.mdx.experiance.top.interview;
 
+import com.mdx.experiance.annotation.Info;
+import com.mdx.experiance.enums.StatusEnum;
 import com.mdx.experiance.problem.ProblemConstructBuilder;
 
 /**
@@ -22,24 +24,31 @@ import com.mdx.experiance.problem.ProblemConstructBuilder;
  * @see
  * @since 2019/9/3
  */
+@Info(status = StatusEnum.ACCEPTTED)
 public class Problem279 {
+    /**
+     * 寻找最少平方根的个数之和等于某个数
+     *
+     * @param n
+     * @return
+     */
     public int numSquares(int n) {
-        Integer num = 0;
-        while (n > 0) {
-            Integer edge = findEdge(n);
-            n = n - edge * edge;
-            num++;
+        int[] dp = new int[n + 1];
+        for (int i = 1; i * i <= n; i++) {
+            dp[i * i] = 1;
         }
-        return num;
+
+        for (int i = 2; i <= n; i++) {
+            if (dp[i] != 1) {
+                dp[i] = Integer.MAX_VALUE;
+                for (int k = 1; k * k <= i; k++) {
+                    dp[i] = Math.min(dp[k * k] + dp[i - k * k], dp[i]);
+                }
+            }
+        }
+        return dp[n];
     }
 
-    private Integer findEdge(int n) {
-        int x = 1;
-        while (x * x <= n) {
-            x++;
-        }
-        return x - 1;
-    }
 
     public static void main(String[] args) {
         Problem279 problem = new ProblemConstructBuilder<Problem279>(Problem279.class.getName()).build();

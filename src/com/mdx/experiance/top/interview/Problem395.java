@@ -35,8 +35,14 @@ import java.util.Map;
  * @see
  * @since 2019/8/19
  */
-@Info(status = StatusEnum.ACCEPTTED)
 public class Problem395 {
+    /**
+     * 最长的子串，使得其中的字符个数至少重复K次
+     *
+     * @param s
+     * @param k
+     * @return
+     */
     public int longestSubstring(String s, int k) {
         if (s.isEmpty() || k > s.length()) {
             return 0;
@@ -60,7 +66,6 @@ public class Problem395 {
             if (times[i] >= k) {
                 continue;
             }
-
 
 
         }
