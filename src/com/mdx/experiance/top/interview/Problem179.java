@@ -1,11 +1,10 @@
 package com.mdx.experiance.top.interview;
 
+import com.mdx.experiance.annotation.Info;
+import com.mdx.experiance.enums.StatusEnum;
 import com.mdx.experiance.problem.ProblemConstructBuilder;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -27,6 +26,7 @@ import java.util.stream.Collectors;
  * @see
  * @since 2019/7/18
  */
+@Info(status = StatusEnum.ACCEPTTED)
 public class Problem179 {
     public String largestNumber(int[] nums) {
         List<String> numStrList = new ArrayList<>();
@@ -35,15 +35,48 @@ public class Problem179 {
             numStrList.add(s);
         }
 
-        numStrList.sort((s1,s2) -> s2.compareTo(s1));
-
-        System.out.println("9A".compareTo("99"));
-        return "";
+        numStrList.sort(new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return (o1 + o2).compareTo(o2 + o1);
+//                int o1Len = o1.length(), o2Len = o2.length();
+//                if (o1Len == o2Len) {
+//                    return o1.compareTo(o2);
+//                } else {
+//                    int minLen = Math.min(o1Len, o2Len);
+//                    // 截取统一长度比较
+//                    int com = o1.substring(0, minLen).compareTo(o2.substring(0, minLen));
+//                    if (com != 0) {
+//                        return com;
+//                    } else {
+//                        // 虚拟扩充长度比较
+//                        String newO1 = String.join("", Collections.nCopies(o2Len, o1));
+//                        String newO2 = String.join("", Collections.nCopies(o1Len, o2));
+//                        return newO1.compareTo(newO2);
+//                    }
+//                }
+            }
+        });
+        if (numStrList.get(numStrList.size() - 1).equals("0")) {
+            return "0";
+        }
+        String s = "";
+        for (int i = numStrList.size() - 1; i >= 0; i--) {
+            s += numStrList.get(i);
+        }
+        return s;
     }
 
     public static void main(String[] args) {
         Problem179 problem = new ProblemConstructBuilder<Problem179>(Problem179.class.getName()).build();
+        System.out.println(problem.largestNumber(new int[]{3, 30}));
         System.out.println(problem.largestNumber(new int[]{3, 30, 34, 5, 9}));
+        System.out.println(problem.largestNumber(new int[]{128, 12}));
+        System.out.println(problem.largestNumber(new int[]{34, 3}));
+        System.out.println(problem.largestNumber(new int[]{0, 0}));
+        System.out.println(problem.largestNumber(new int[]{1, 0, 0}));
+        System.out.println(problem.largestNumber(new int[]{824, 938, 1399, 5607, 6973, 5703, 9609, 4398, 8247}));
+        System.out.println(problem.largestNumber(new int[]{12, 121}));
     }
 
 }

@@ -1,7 +1,5 @@
 package com.mdx.experiance.top.interview;
 
-import com.mdx.experiance.annotation.Info;
-import com.mdx.experiance.enums.StatusEnum;
 import com.mdx.experiance.problem.ProblemConstructBuilder;
 
 import java.util.HashMap;
@@ -50,31 +48,30 @@ public class Problem395 {
         if (k == 1) {
             return s.length();
         }
-        Map<Character, Integer> countMap = new HashMap<>();
-        for (int i = 0; i < s.length(); i++) {
-            char c = s.charAt(i);
-            countMap.put(c, countMap.containsKey(c) ? countMap.get(c) + 1 : 1);
-        }
-
-        int[] times = new int[s.length()];
-        for (int i = 0; i < s.length(); i++) {
-            times[i] = countMap.get(s.charAt(i));
-        }
-
-        Integer max = 0;
-        for (int i = 0; i < times.length; i++) {
-            if (times[i] >= k) {
-                continue;
+        int[] dp = new int[s.length()];
+        dp[0] = 1;
+        for (int i = 1; i < s.length(); i++) {
+            String sub = s.substring(0, i);
+            char cur = s.charAt(i);
+            if (sub.indexOf(cur) >= 0) {
+                if (cur == s.charAt(i - 1)) {
+                    dp[i] = dp[i - 1] + 1;
+                } else {
+                    dp[i] = dp[i-1];
+                }
+            } else {
+                dp[i] = 1;
             }
-
-
         }
+
+
+
         return 0;
     }
 
     public static void main(String[] args) {
         Problem395 problem = new ProblemConstructBuilder<Problem395>(Problem395.class.getName()).build();
-        System.out.println(problem.longestSubstring("ababbc", 2));
+        System.out.println(problem.longestSubstring("ababacb", 3));
     }
 
 }

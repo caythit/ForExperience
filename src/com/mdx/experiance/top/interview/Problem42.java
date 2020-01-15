@@ -25,6 +25,12 @@ import com.mdx.experiance.problem.ProblemConstructBuilder;
  */
 @Info(status = StatusEnum.ACCEPTTED)
 public class Problem42 {
+    /**
+     * 数组每个元素代表高度，问能装多少水
+     *
+     * @param height
+     * @return
+     */
     public int trap(int[] height) {
         int left = 0, right = height.length - 1;
         Integer res = 0, minIndex = -1;
@@ -49,8 +55,35 @@ public class Problem42 {
         return res;
     }
 
+    /**
+     * 数组每个元素代表高度，问最多能装多少水
+     *
+     * @param height
+     * @return
+     */
+    public int trapDP(int[] height) {
+        int size = height.length;
+        int[] leftMaxDP = new int[size];
+        int[] rightMaxDP = new int[size];
+
+        leftMaxDP[0] = height[0];
+        for (int i = 1; i < size; i++) {
+            leftMaxDP[i] = Math.max(leftMaxDP[i - 1], height[i]);
+        }
+        rightMaxDP[size - 1] = height[size - 1];
+        for (int i = size - 2; i >= 0; i--) {
+            rightMaxDP[i] = Math.max(rightMaxDP[i + 1], height[i]);
+        }
+
+        int res = 0;
+        for(int i =0;i<size;i++) {
+            res += Math.min(leftMaxDP[i], rightMaxDP[i]) - height[i];
+        }
+        return res;
+    }
+
     public static void main(String[] args) {
         Problem42 problem = new ProblemConstructBuilder<Problem42>(Problem42.class.getName()).build();
-        System.out.println(problem.trap(new int[]{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1}));
+        System.out.println(problem.trapDP(new int[]{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1}));
     }
 }
